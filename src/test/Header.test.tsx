@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import { expect, test } from "vitest";
 
@@ -12,34 +12,25 @@ import Csv from "@/routes/pages/Csv";
 import List from "@/routes/pages/List";
 
 describe("Header", () => {
-  test("five navigation links", () => {
+  beforeEach(() => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <TheHeader />
-      </BrowserRouter>
+      </MemoryRouter>
     );
+  });
+
+  test("five navigation links", () => {
     const navLinks = screen.getAllByRole("link");
     expect(navLinks).toHaveLength(5);
   });
 
   test("home link has correct href", () => {
-    render(
-      <BrowserRouter>
-        <TheHeader />
-      </BrowserRouter>
-    );
-
     const homeLink = screen.getByRole("link", { name: "Home" });
     expect(homeLink).toHaveAttribute("href", "/");
   });
 
   test("datepicker link has correct href", () => {
-    render(
-      <BrowserRouter>
-        <TheHeader />
-      </BrowserRouter>
-    );
-
     const datepickerLink = screen.getByRole("link", { name: "DatePicker" });
     expect(datepickerLink).toHaveAttribute("href", "/datepicker");
   });
