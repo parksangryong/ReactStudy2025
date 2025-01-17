@@ -71,6 +71,7 @@ const DatePicker = () => {
             format="yyyy.MM.dd"
             locale="ko"
             className="date-picker"
+            data-testid="DatePicker2Open"
           />
           <label htmlFor="date-picker">종료일</label>
           <DatePicker2
@@ -79,6 +80,7 @@ const DatePicker = () => {
             format="yyyy.MM.dd"
             locale="ko"
             className="date-picker"
+            data-testid="DatePicker2Close"
           />
         </div>
       </div>
