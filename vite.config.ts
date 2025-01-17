@@ -2,6 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
+const vitestConfig = {
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+};
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -13,4 +20,5 @@ export default defineConfig({
       "@layouts": path.resolve(__dirname, "./src/routes/layouts"),
     },
   },
+  ...vitestConfig,
 });

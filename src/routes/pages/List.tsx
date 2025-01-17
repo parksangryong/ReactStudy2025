@@ -45,27 +45,29 @@ const List = () => {
       style={{
         display: "flex",
         justifyContent: "center",
-        flexDirection: "row",
-        marginTop: "50px",
+        flexDirection: "column",
         width: "100%",
         gap: "10px",
       }}
     >
-      <RwList
-        height={300}
-        itemCount={dummyData.length}
-        itemSize={50}
-        width={300}
-        itemData={dummyData}
-        style={{ gap: "10px" }}
-      >
-        {ListItem}
-      </RwList>
-      <ReactList
-        length={dummyData.length}
-        itemRenderer={ListItem2}
-        type="uniform"
-      />
+      <h1>FlatList 예제</h1>
+      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+        <RwList
+          height={300}
+          itemCount={dummyData.length}
+          itemSize={50}
+          width={300}
+          itemData={dummyData}
+          style={{ gap: "10px" }}
+        >
+          {ListItem}
+        </RwList>
+        <ReactList
+          length={dummyData.length}
+          itemRenderer={ListItem2}
+          type="uniform"
+        />
+      </div>
     </div>
   );
 };
